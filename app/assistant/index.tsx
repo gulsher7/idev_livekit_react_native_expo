@@ -17,9 +17,8 @@ import {
   useRoomContext,
   VideoTrack,
 } from '@livekit/react-native';
-import { useConnectionDetails } from '@/hooks/useConnectionDetails';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import ControlBar from './ui/ControlBar';
 import ChatBar from './ui/ChatBar';
 import ChatLog from './ui/ChatLog';
@@ -27,7 +26,10 @@ import AgentVisualization from './ui/AgentVisualization';
 import useDataStreamTranscriptions from '@/hooks/useDataStreamTranscriptions';
 import { Track } from 'livekit-client';
 
+
+
 export default function AssistantScreen() {
+  const { token } = useLocalSearchParams();
   // Start the audio session first.
   useEffect(() => {
     let start = async () => {
@@ -40,13 +42,15 @@ export default function AssistantScreen() {
     };
   }, []);
 
-  const connectionDetails = useConnectionDetails();
+  console.log("token", token)
+
+
 
   return (
     <SafeAreaView>
       <LiveKitRoom
-        serverUrl={connectionDetails?.url}
-        token={connectionDetails?.token}
+        serverUrl="wss://test-app-hx8kqqj6.livekit.cloud"
+        token={token as string}
         connect={true}
         audio={true}
         video={false}

@@ -27,7 +27,7 @@ export default function ChatBar({
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={[style]}
-      keyboardVerticalOffset={24}
+      keyboardVerticalOffset={80}
     >
       <View style={styles.container}>
         <TextInput
