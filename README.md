@@ -14,11 +14,7 @@ First, create a new [Sandbox Token Server](https://cloud.livekit.io/projects/p_m
 
 Then, run the following command to automatically clone this template and connect it to LiveKit Cloud:
 
-```bash
-lk app create --template agent-starter-react-native --sandbox <token_server_sandbox_id>
-```
 
-Afterwards, move to the newly created folder and run the following commands:
 
 ```bash
 npm install
